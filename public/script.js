@@ -1,4 +1,3 @@
-// Only works on teacher.html
 if (window.location.pathname.includes("teacher.html")) {
   const params = new URLSearchParams(window.location.search);
   const teacherName = params.get("name");
@@ -8,8 +7,8 @@ if (window.location.pathname.includes("teacher.html")) {
   const commentForm = document.getElementById("comment-form");
   const commentInput = document.getElementById("comment-input");
 
-  // Fetch and display existing comments from MongoDB
-  fetch(`http://localhost:3000/comments/${encodeURIComponent(teacherName)}`)
+  // Fetch existing comments (use relative URL)
+  fetch(`/comments?teacherName=${encodeURIComponent(teacherName)}`)
     .then(res => res.json())
     .then(data => {
       data.forEach(comment => {
@@ -21,16 +20,14 @@ if (window.location.pathname.includes("teacher.html")) {
       });
     });
 
-  // Add new comment and save to MongoDB
+  // Post new comment (use relative URL)
   commentForm.addEventListener("submit", function (e) {
     e.preventDefault();
     const comment = commentInput.value;
 
-    fetch('http://localhost:3000/comments', {
+    fetch('/comments', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json'
-      },
+      headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({ teacherName, comment })
     })
       .then(res => res.json())
