@@ -1,0 +1,23 @@
+{
+  "name": "teacher-feedback",
+  "version": "1.0.0",
+  "description": "Teacher comment app with Vercel + MongoDB serverless backend",
+  "main": "index.js",
+  "type": "commonjs",
+  "scripts": {
+    "dev": "vercel dev"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lab-af/teacherfeedback.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lab-af/teacherfeedback/issues"
+  },
+  "homepage": "https://github.com/lab-af/teacherfeedback#readme",
+  "author": "Labib Afnan",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^8.16.0"
+  }
+}
